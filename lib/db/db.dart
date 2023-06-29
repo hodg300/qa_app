@@ -8,8 +8,10 @@ class DB {
   // iOS emulator - 127.0.0.1:3000 or localhost
   // android emulator - 10.0.2.2:3000
   // localhost on real - wifi ip - npx json-server --watch --host {WIFI-IP} db.json
+  // static String url = "http://192.168.0.17:3000";
 
-  static String url = "http://192.168.0.17:3000";
+  static String url = "http://localhost:3000";
+
 
   static Future<Map<String, dynamic>> postData(
       {String route = "answers", required dynamic data}) async {
