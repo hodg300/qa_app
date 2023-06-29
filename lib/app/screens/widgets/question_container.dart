@@ -1,21 +1,28 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:go_tech_assignment/utils/utils.dart';
 
 import '../../../utils/colors.dart';
+import '../../../utils/constants.dart';
 
 class QuestionContainer extends StatelessWidget {
   final String question;
-  final String questionType;
+  final bool isRequired;
   final Widget? child; // text field widget
-  const QuestionContainer({super.key, required this.question, required this.questionType, this.child});
+  const QuestionContainer(
+      {super.key,
+      required this.question,
+      this.child,
+      required this.isRequired});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+        width: Utils.screenWidthSize(context),
+        padding: const EdgeInsets.symmetric(vertical: 10),
         decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(15)),
+            borderRadius: BorderRadius.all(Radius.circular(5)),
             color: whiteColor,
             boxShadow: [
               BoxShadow(
@@ -24,19 +31,42 @@ class QuestionContainer extends StatelessWidget {
                 blurRadius: 3,
                 offset: Offset(0, 0),
               )
-            ]
-        ),
-        child: Column(
-          children: [
-            Text(
-              question,
-              style: const TextStyle(
-                  color: blackColor77,
-                  fontWeight: FontWeight.normal,
-                  fontSize: 17),
-            ),
-            child ?? Container()
-          ],
+            ]),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: SizedBox(
+                  width: Utils.screenWidthSize(context) * 0.85,
+                  child: RichText(
+                    textAlign: TextAlign.start,
+                    text: TextSpan(
+                      style: const TextStyle(
+                          fontSize: questionTitleFontSize,
+                          fontWeight: FontWeight.normal,
+                          // fontFamily: FONT_FAMILY,
+                          color: blackColor77),
+                      children: [
+                        TextSpan(text: question),
+                        if (isRequired)
+                          const TextSpan(
+                              text: ' *',
+                              style: TextStyle(
+                                  fontSize: questionTitleFontSize,
+                                  fontWeight: FontWeight.normal,
+                                  // fontFamily: FONT_FAMILY,
+                                  color: Colors.red)),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              child ?? Container()
+            ],
+          ),
         ),
       ),
     );

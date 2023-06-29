@@ -4,13 +4,15 @@ Q&A app
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+In order to setup json-server:
+1. npm install -g json-server
+2. json-server --watch db.json
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Important #
+If you want to run the server on localhost there are some issues that you need to know.
+* iOS emulator - 127.0.0.1:3000 or localhost
+* android emulator - 10.0.2.2:3000
+* localhost on real - wifi ip - npx json-server --watch --host {WIFI-IP} db.json
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+

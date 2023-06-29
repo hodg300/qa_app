@@ -4,16 +4,16 @@ import '../../../utils/colors.dart';
 import '../../../utils/utils.dart';
 
 class CustomElevatedButton extends StatelessWidget {
-  CustomElevatedButton(
-      {required Key key,
+  const CustomElevatedButton(
+      {super.key,
       required this.child,
       this.color = Colors.indigo,
       this.borderRadius = 8.0,
-      this.height = 50.0,
+      this.height = 40.0,
       this.minWidth,
       this.onPressed,
       this.roundedRectangleBorder,
-      this.padding = const EdgeInsets.fromLTRB(40.0, 18.0, 40.0, 18.0),
+      this.padding = const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
       this.borderSide,
       this.shadowColor,
       this.elevatedPadding,
@@ -42,43 +42,38 @@ class CustomElevatedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        key: key,
-        height: height,
-        width: minWidth ?? Utils.screenWidthSize(context) * 0.7,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(
-              Radius.circular(borderRadius),
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: shadowColor ?? grey180,
-                spreadRadius: spreadRadius ?? 1,
-                blurRadius: blurRadius ?? 3,
-                offset: offsetBoxShadow ?? Offset(0, 0),
-              ),
-              // BoxShadow(
-              //   color: shadowColor,
-              //   spreadRadius: -1.0,
-              //   blurRadius: 12.0,
-              // ),
-            ]),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            side: borderSide,
-            padding: elevatedPadding,
-            shape: roundedRectangleBorder ?? RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(borderRadius)),
-            primary: color,
-            onSurface: onSurfaceColor,
-            shadowColor: Colors.transparent,
-            elevation: 20,
-            animationDuration: Duration(milliseconds: delayedInMilli),
+    return Container(
+      key: key,
+      height: height,
+      width: minWidth ?? Utils.screenWidthSize(context) * 0.3,
+      decoration: BoxDecoration(
+          color: Colors.deepPurple,
+          borderRadius: BorderRadius.all(
+            Radius.circular(borderRadius),
           ),
-          onPressed: onPressed,
-          child: Padding(padding: padding, child: child),
+          boxShadow: [
+            BoxShadow(
+              color: shadowColor ?? grey180,
+              spreadRadius: spreadRadius ?? 1,
+              blurRadius: blurRadius ?? 3,
+              offset: offsetBoxShadow ?? Offset(0, 0),
+            ),
+          ]),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          side: borderSide,
+          padding: elevatedPadding,
+          shape: roundedRectangleBorder ??
+              RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(borderRadius)),
+          primary: color,
+          onSurface: onSurfaceColor,
+          shadowColor: Colors.transparent,
+          elevation: 20,
+          animationDuration: Duration(milliseconds: delayedInMilli),
         ),
+        onPressed: onPressed,
+        child: Padding(padding: padding, child: child),
       ),
     );
   }

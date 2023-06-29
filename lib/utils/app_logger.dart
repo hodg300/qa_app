@@ -15,10 +15,7 @@ class AppLogger {
         stackTrace = StackTrace.current;
       }
 
-      // https://flutter.dev/docs/cookbook/maintenance/error-reporting
-      //FlutterError.dumpErrorToConsole ??
       print("\x1B[31mQAPPError: $errorLogMessage at:\n $stackTrace\x1B[0m");
-//    _logger.fine(logMessage);
     } else {
       print("\x1B[31mQAPPError: $errorLogMessage\x1B[0m");
     }
@@ -37,11 +34,8 @@ class AppLogger {
       } else {
         stackTrace = StackTrace.current;
       }
-
-      // https://flutter.dev/docs/cookbook/maintenance/error-reporting
-      //FlutterError.dumpErrorToConsole ??
-      print("\x1b[33mPumbaApplicationWarning: $errorLogMessage at:\n $stackTrace\x1B[0m");
-//    _logger.fine(logMessage);
+      print(
+          "\x1b[33mPumbaApplicationWarning: $errorLogMessage at:\n $stackTrace\x1B[0m");
     } else {
       print("\x1b[33mPumbaApplicationWarning: $errorLogMessage\x1B[0m");
     }
@@ -62,5 +56,4 @@ class AppLogger {
 
     return stackTrace;
   }
-
 }

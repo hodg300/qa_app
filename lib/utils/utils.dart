@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-class Utils{
+class Utils {
   static bool? _isInDebugMode = true;
 
   static bool get isInReleaseMode => !isInDebugMode;
@@ -8,7 +8,6 @@ class Utils{
   static bool get isInDebugMode {
     if (_isInDebugMode == null) {
       _isInDebugMode = false;
-      // From: https://stackoverflow.com/questions/49707028/check-if-running-app-is-in-debug-mode
       assert(_isInDebugMode = true); // Because assert runs only in debug mode.
     }
 
@@ -17,17 +16,11 @@ class Utils{
 
   /// return width size of device in double
   static double screenWidthSize(BuildContext context) {
-    return MediaQuery
-        .of(context)
-        .size
-        .width;
+    return MediaQuery.of(context).size.width;
   }
 
   /// return height size of device in double
   static double screenHeightSize(BuildContext context) {
-    return MediaQuery
-        .of(context)
-        .size
-        .height;
+    return MediaQuery.of(context).size.height;
   }
 }

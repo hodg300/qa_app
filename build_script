@@ -1,0 +1,6 @@
+rm pubspec.lock
+cd ios
+rm Podfile.lock
+flutter clean
+flutter pub get
+pod install --repo-update
