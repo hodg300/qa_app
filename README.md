@@ -4,7 +4,9 @@ Q&A app
 
 ## Getting Started
 
-In order to setup json-server:
+[Github] https://github.com/typicode/json-server 
+
+In order to start the json-server:
 1. npm install -g json-server
 2. json-server --watch db.json
 
